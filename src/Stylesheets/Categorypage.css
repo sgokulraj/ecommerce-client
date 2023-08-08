@@ -1,0 +1,12 @@
+.categoryContainer{
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.searchProd{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+}

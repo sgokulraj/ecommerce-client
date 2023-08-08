@@ -1,0 +1,16 @@
+.loading {
+    min-height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.orderContainer {
+    max-width: 90%;
+    margin: 30px auto;
+    text-align: center;
+}
+
+.orderContainer h3{
+    margin-bottom: 30px;
+}

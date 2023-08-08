@@ -1,0 +1,46 @@
+.homeContainer {
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+.homeContainer .featuredProducts {
+    margin: 30px 0px
+}
+
+.moreProducts {
+    text-align: right;
+    display: block;
+    text-decoration: none;
+    margin: 0;
+}
+
+
+
+.category {
+    height: 250px;
+    background-size: cover;
+    background-position: center;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 30px;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-top: 30px;
+}
+
+
+
+.category:hover {
+    transform: scale(1.05);
+}
+
+.featuredProducts .latestProducts {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}

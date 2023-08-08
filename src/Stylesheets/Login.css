@@ -1,0 +1,44 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@media screen and (min-width:1000px) {
+    .loginContainer {
+        background-image: url("../images/5865.jpg");
+        background-position: 0% 15%;
+        background-size: 500px 500px;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        height: 70vh;
+    }
+}
+
+@media screen and (max-width:1000px) {
+    .loginContainer {
+        background-image: url("../images/5865.jpg");
+        background-position: 50%  100%;
+        background-size: 200px 200px;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        height: 85vh;
+    }
+}
+
+
+.loginContainer .formlog {
+    max-width: 500px;
+    margin: 50px auto;
+    text-align: center;
+
+}
+
+.loginContainer .formlog form {
+    max-width: 80%;
+    margin: 20px auto;
+}
+
+.errormsg{
+    color: red;
+}

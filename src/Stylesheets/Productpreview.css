@@ -1,0 +1,10 @@
+.previewContainer{
+    cursor: pointer;
+    color: inherit;
+    text-decoration: none;
+}
+
+.previewImg{
+    height: 180px;
+    object-fit: cover;
+}

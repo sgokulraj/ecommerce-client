@@ -1,0 +1,32 @@
+.loading {
+    min-height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.prodDescription {
+    text-align: justify;
+    padding: 20px 0;
+}
+
+.cartDiv {
+    width: 80%;
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.cartDiv .quantity {
+    width: 50%;
+
+}
+
+.similarProd {
+   
+    display: flex !important;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
