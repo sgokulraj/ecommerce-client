@@ -17,8 +17,8 @@ export const userSlice = createSlice({
         builder.addMatcher(appApi.endpoints.increaseCart.matchFulfilled,(state, action)=> action.payload)
         builder.addMatcher(appApi.endpoints.decreaseCart.matchFulfilled,(state, action)=> action.payload)
         builder.addMatcher(appApi.endpoints.createOrder.matchFulfilled, (state, { payload }) => payload);
+        builder.addMatcher(appApi.endpoints.update.matchFulfilled, (state, { payload }) => payload);
     }
-
 })
 
 const { actions, reducer } = userSlice;

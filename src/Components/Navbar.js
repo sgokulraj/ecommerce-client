@@ -63,6 +63,11 @@ function NavBar() {
                                                     Orders
                                                 </Link>
                                             </NavDropdown.Item>
+                                            <NavDropdown.Item >
+                                                <Link to='/profile' className='navbarLink'>
+                                                    Profile
+                                                </Link>
+                                            </NavDropdown.Item>
 
                                         </>
                                     )}

@@ -40,7 +40,7 @@ function Newproduct() {
             },
             (err, result) => {
                 if (!err && result.event === "success") {
-                    setImages((preval) => [...preval, { url: result.info.url, public_id: result.info.public_id }])
+                    setImages({url: result.info.url, public_id: result.info.public_id })
                 }
             }
         )
@@ -128,7 +128,7 @@ function Newproduct() {
                     </FloatingLabel>
 
                     <FloatingLabel className="mb-3">
-                        <Button type="button" onClick={selectImg}>Upload Images</Button>
+                        <Button type="button" onClick={selectImg}>Upload Cover Photo</Button>
                         <div className="previewContainer">
                             {images.map((image) => (
                                 <div className="imgPreview">

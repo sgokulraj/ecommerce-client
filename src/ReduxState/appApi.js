@@ -87,12 +87,21 @@ export const appApi = createApi({
                 method: "POST",
                 body
             })
-        })
+        }),
+
+        update: builder.mutation({
+            query:(user) => ({
+                url: `/users/${user.userId}/profile`,
+                method: "PATCH",
+                body: user
+            })
+        }),
+       
 
     })
 })
 
 
-export const { useSignupMutation, useLoginMutation, useProductCreationMutation, useProductEditMutation, useProductDeletionMutation, useAddToCartMutation, useRemoveFromCartMutation, useIncreaseCartMutation, useDecreaseCartMutation, useCreateOrderMutation } = appApi
+export const { useSignupMutation, useLoginMutation, useProductCreationMutation, useProductEditMutation, useProductDeletionMutation, useAddToCartMutation, useRemoveFromCartMutation, useIncreaseCartMutation, useDecreaseCartMutation, useCreateOrderMutation , useUpdateMutation} = appApi
 
 export default appApi 

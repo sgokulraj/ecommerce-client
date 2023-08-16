@@ -12,6 +12,7 @@ import Cart from './Pages/Cart';
 import Orders from './Pages/Orders';
 import AdminDashboard from './Pages/AdminDashboard';
 import EditProduct from './Pages/EditProduct';
+import Profile from "./Pages/Profile"
 
 function App() {
   const user = useSelector((state) => state.user)
@@ -19,26 +20,34 @@ function App() {
     <BrowserRouter>
       <NavBar />
       <Routes>
-        <Route index element={<Home />} />
-        <Route path='*' element={<Home />} />
-
         {!user && (
           <>
-            <Route path='/login' element={<Login />} />
+            <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
           </>
-        )}
+        )
+        }
+        <Route path='*' element={user ? <Home /> : <Login />} />
+
+
+        {/* {!user && (
+          <>
+            <Route path='/login' element={<Login />} />
+          </>
+        )} */}
         {user && (
           <>
+            <Route path='/' element={<Home />} />
             <Route path='/cart' element={<Cart />} />
             <Route path="/orders" element={<Orders />} />
+            <Route path='/profile' element={<Profile/>} />
           </>
         )}
         {user && user.isAdmin && (
           <>
             <Route path='/admin' element={<AdminDashboard />} />
             <Route path='/createProduct' element={<Newproduct />} />
-            <Route path='product/:id/edit' element={<EditProduct/>}/>
+            <Route path='product/:id/edit' element={<EditProduct />} />
           </>
         )}
         <Route path='/product/:id' element={<Productpage />} />

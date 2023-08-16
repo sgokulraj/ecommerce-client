@@ -58,7 +58,7 @@ function Orders() {
                                 </Table>
                             </div>
                         ) : (
-                            <h3>No Orders found</h3>
+                            <h3 className="my-3 text-center">No Orders found</h3>
                         )
                     }</>
                 )

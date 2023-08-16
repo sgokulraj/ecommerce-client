@@ -5,7 +5,8 @@ import { Link } from 'react-router-dom';
 import { useForm } from "react-hook-form"
 import { useEffect } from 'react';
 import { useLoginMutation } from "../ReduxState/appApi"
-
+import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
+import Popover from 'react-bootstrap/Popover';
 
 function Login() {
     const { register, handleSubmit, reset, formState: { isSubmitSuccessful, errors } } = useForm()
@@ -34,8 +35,16 @@ function Login() {
         reset()
     }, [isSubmitSuccessful, reset])
 
-    const [login, { isLoading, isError, error }] = useLoginMutation()
-
+    const [login, { isLoading, isError, error, isSuccess }] = useLoginMutation()
+    const popover = (
+        <Popover id="popover-basic">
+            <Popover.Header as="h3">Test Credentials</Popover.Header>
+            <Popover.Body>
+                <p><strong>Email:</strong> gokul@test.com</p>
+                <p><strong>Password:</strong> Gokul@123</p>
+            </Popover.Body>
+        </Popover>
+    )
     return (
         <div className='loginContainer'>
             <div className='formlog'>
@@ -69,10 +78,13 @@ function Login() {
                         <label htmlFor="floatingPasswordCustom">Password</label>
                         <p className='errormsg'>{errors.password && errors.password.message}</p>
                     </Form.Floating>
-                    <Button type="submit" variant="primary" style={{ marginRight: "20px" }}>Submit</Button>
-                    <Button type="reset" variant="secondary">Reset</Button>
+                    <Button type="submit" variant="primary" style={{ marginRight: "20px" }} disabled={isLoading}>Submit</Button>
+                    <Button type="reset" variant="secondary" disabled={isLoading}>Reset</Button>
                     <p style={{ marginTop: "20px" }}>New to ShopKart? <Link to="/register">Click here to Register</Link></p>
                 </form>
+                <OverlayTrigger trigger="click" placement="bottom" overlay={popover}>
+                    <Button variant="success">View Test Credentials</Button>
+                </OverlayTrigger>
             </div>
         </div>
     )
