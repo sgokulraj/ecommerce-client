@@ -1,6 +1,6 @@
 const categories = [
     {
-        name: "Mobiles & Electronic Devices",
+        name: "Mobiles & ElectronicDevices",
         img: "https://res.cloudinary.com/dmaqngqvx/image/upload/v1691421044/electronics_eyilpb.webp"
     },
     {
@@ -12,7 +12,7 @@ const categories = [
         img: "https://res.cloudinary.com/dmaqngqvx/image/upload/v1691421529/sports_edctdl.jpg",
     },
 
-    { name: "Baby care", img: "https://res.cloudinary.com/dmaqngqvx/image/upload/v1691419963/mt3brz8qhbrd4uqzxlql.jpg" },
+    { name: "BabyCare", img: "https://res.cloudinary.com/dmaqngqvx/image/upload/v1691419963/mt3brz8qhbrd4uqzxlql.jpg" },
 ];
 
 export default categories;

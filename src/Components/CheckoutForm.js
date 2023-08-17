@@ -17,7 +17,7 @@ function CheckoutForm() {
     const [country, setCountry] = useState("")
     const [paying, setPaying] = useState(false)
     const [createOrder, { isLoading, isError, isSuccess }] = useCreateOrderMutation()
-    const [alert, setAlert] = useState("")
+    const [msgalert, setMsgAlert] = useState("")
     const navigate = useNavigate()
 
     async function handlePay(e) {
@@ -47,7 +47,9 @@ function CheckoutForm() {
         if (paymentIntent) {
             let res = await createOrder({ userId: user._id, cart: user.cart, address, country })
             if(!isLoading && !isError){
-                setAlert(`Payment ${paymentIntent.status}`)
+                alert("Successfully Purchased!!")
+                setMsgAlert(`Payment ${paymentIntent.status}`)
+                console.log(paymentIntent.status)
                 setTimeout(()=>{
                     navigate("/orders")
                 },2000)
@@ -56,7 +58,7 @@ function CheckoutForm() {
     }
     return (
         <div>
-             {alert && <Alert variant="success">{alert}</Alert>}
+             {msgalert && <Alert variant="success">{msgalert}</Alert>}
             <Form onSubmit={handlePay} className="mb-4">
                 <Row className="mb-3">
                     <Form.Group as={Col} controlId="formGridEmail">

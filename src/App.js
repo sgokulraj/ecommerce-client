@@ -40,7 +40,9 @@ function App() {
             <Route path='/' element={<Home />} />
             <Route path='/cart' element={<Cart />} />
             <Route path="/orders" element={<Orders />} />
-            <Route path='/profile' element={<Profile/>} />
+            <Route path='/profile' element={<Profile />} />
+            <Route path='/product/:id' element={<Productpage />} />
+            <Route path='/category/:category' element={<Categorypage />} />
           </>
         )}
         {user && user.isAdmin && (
@@ -48,10 +50,11 @@ function App() {
             <Route path='/admin' element={<AdminDashboard />} />
             <Route path='/createProduct' element={<Newproduct />} />
             <Route path='product/:id/edit' element={<EditProduct />} />
+            <Route path='/product/:id' element={<Productpage />} />
+            <Route path='/category/:category' element={<Categorypage />} />
           </>
         )}
-        <Route path='/product/:id' element={<Productpage />} />
-        <Route path='/category/:category' element={<Categorypage />} />
+
       </Routes>
     </BrowserRouter>
   );

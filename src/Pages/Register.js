@@ -1,7 +1,7 @@
 import Form from 'react-bootstrap/Form';
 import "../Stylesheets/Login.css"
 import { Button, FloatingLabel } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useForm } from "react-hook-form"
 import { useRef, useEffect, useState } from 'react';
 import { useSignupMutation } from "../ReduxState/appApi"
@@ -20,6 +20,8 @@ function Register() {
     const [removeImg, setRemoveImg] = useState(null)
     const password = useRef("");
     password.current = watch("password");
+    const navigate = useNavigate()
+
 
     useEffect(() => {
         reset();
@@ -112,7 +114,8 @@ function Register() {
         setImgBtn(false)
     }
 
-    const [signup, { isError, error, isLoading }] = useSignupMutation()
+    const [signup, { isError, error, isLoading, isSuccess }] = useSignupMutation()
+   
     return (
         <div className='loginContainer'>
             <div className='formlog'>
@@ -124,9 +127,11 @@ function Register() {
                     const password = data.password;
                     const mobile = data.mobile;
                     const gender = data.gender;
-
                     signup({ username, email, password, mobile, gender, images })
-
+                    if (!isError) {
+                        alert("Registered Successfully")
+                        navigate("/login")
+                    }
                 })}>
                     {isError && <p className='errormsg'>{error.data}</p>}
                     <Form.Floating className="mb-3">
@@ -214,7 +219,7 @@ function Register() {
                             {imgBtn && (
                                 <div className="imgPreview" style={{ width: "300px", margin: "0 auto" }}>
                                     <img src={images?.url} alt="image" style={{ width: "200px", height: "200px", objectFit: "cover" }} />
-                                    {removeImg != images.public_id && <AiOutlineMinusCircle className="deleteImg" style={{ position: "absolute", top: "0px", left: "30px" }}  title='Delete Profile Photo' onClick={() => deleteImage(images)} />}
+                                    {removeImg != images.public_id && <AiOutlineMinusCircle className="deleteImg" style={{ position: "absolute", top: "0px", left: "30px" }} title='Delete Profile Photo' onClick={() => deleteImage(images)} />}
                                 </div>
                             )}
                         </div>

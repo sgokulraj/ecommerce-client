@@ -15,7 +15,7 @@ import { HiShoppingCart } from "react-icons/hi"
 function NavBar() {
     const user = useSelector((state) => state.user)
     const dispatch = useDispatch()
-
+    const profilePhoto = user?.profilephoto[0].url
 
     return (
         <Navbar bg="primary" data-bs-theme="dark">
@@ -23,7 +23,7 @@ function NavBar() {
                 <Navbar.Brand><Link to="/" className='navbarLink h2'>ShopKart</Link></Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
-                    <Nav className="ms-auto">
+                    <Nav className="ms-auto navAlign" >
                         {!user && (
                             <Nav.Link><Link to="/login" className='navbarLink'>Login</Link></Nav.Link>
                         )}
@@ -79,6 +79,9 @@ function NavBar() {
                                     Logout
                                 </Button>
                             </NavDropdown>
+                        )}
+                        {user && (
+                            <img src={profilePhoto} width={30} height={30} style={{objectFit:"cover", borderRadius:"50%", alignItems:"center"}} />
                         )}
 
                     </Nav>

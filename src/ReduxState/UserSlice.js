@@ -10,7 +10,6 @@ export const userSlice = createSlice({
         setLogout: () => initialState,
     },
     extraReducers: (builder)=>{
-        builder.addMatcher(appApi.endpoints.signup.matchFulfilled,(state, action)=> action.payload)
         builder.addMatcher(appApi.endpoints.login.matchFulfilled,(state, action)=> action.payload)
         builder.addMatcher(appApi.endpoints.addToCart.matchFulfilled,(state, action)=> action.payload)
         builder.addMatcher(appApi.endpoints.removeFromCart.matchFulfilled,(state, action)=> action.payload)
